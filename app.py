@@ -49,7 +49,7 @@ def home():
         y = int(x)
         z = (x - y)*10
         ball = y*6+int(z)
-        print("Ball:-",ball)
+    
         ball_left = int(120 - ball)
         
         try:
@@ -76,15 +76,15 @@ def home():
 
         loss = float(round(loss*100,2))
         if wickets_fall<6 and loss>75 and (rrr-crr)<=4 and ball<=80:
-            print("con1")
+           
             loss = loss-30
 
         if wickets_fall<=4 and loss>65 and (rrr-crr)<=5.5 and ball<=90:
-            print("con2")
+            
             loss = loss-35
 
         if wickets_fall<8 and loss>80 and (rrr-crr)<=5 and ball_left>=96 and ball_left<120:
-            print("con3")
+            
             loss = loss-35
 
         if wickets_fall>=6 and loss<60 and rrr>14 and ball_left<30:
@@ -92,15 +92,13 @@ def home():
 
         loss = round(loss,2)
         win = round(100-loss,2)
-        print("Loss:-",loss)
-        print("Win:-",win)
-        print(model.classes_)
+      
         if win>loss:
             song = logo[int(request.form['battingteam'])]
         if loss>win:
             song = logo[int(request.form['bowlingteam'])]
 
-        print(df)
+  
         if current_runs>total_runs:
             pred = 2
             error = "Current Runs Can Not Be Greater Than Target"
@@ -128,4 +126,4 @@ def home():
     return render_template('home.html', teams=teams, city=cities)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)
