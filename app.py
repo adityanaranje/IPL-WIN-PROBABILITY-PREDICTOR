@@ -89,6 +89,9 @@ def home():
 
         if wickets_fall>=6 and loss<60 and rrr>14 and ball_left<30:
             loss = loss+20
+            
+        if loss>50 and rrr<12 and ball_left<=36:
+            loss = loss-20
 
         loss = round(loss,2)
         win = round(100-loss,2)
